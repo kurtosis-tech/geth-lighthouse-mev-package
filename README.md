@@ -13,7 +13,7 @@ If you have [Kurtosis installed][install-kurtosis], run:
 
 <!-- TODO replace YOURUSER and THISREPO with the correct values -->
 ```bash
-kurtosis run github.com/kurtosis-tech/geth-lighthouse-package
+kurtosis run github.com/kurtosis-tech/geth-lighthouse-mev-package
 ```
 
 If you don't have Kurtosis installed, [click here to run this package on the Kurtosis playground](https://gitpod.io/?autoStart=true&editor=code#https://github.com/kurtosis-tech/geth-lighthouse-package).
