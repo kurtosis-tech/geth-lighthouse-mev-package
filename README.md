@@ -1,5 +1,5 @@
-geth-lighthouse-mev--package
-=======================
+geth-lighthouse-mev-package
+===========================
 
 This is a [Kurtosis package](https://docs.kurtosis.com/concepts-reference/packages).
 
