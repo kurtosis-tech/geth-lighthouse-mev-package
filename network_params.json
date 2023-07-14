@@ -5,6 +5,6 @@
   "deposit_contract_address": "0x4242424242424242424242424242424242424242",
   "seconds_per_slot": 12,
   "genesis_delay": 10,
-  "capella_fork_epoch": 2,
+  "capella_fork_epoch": 1,
   "deneb_fork_epoch": 500
 }
