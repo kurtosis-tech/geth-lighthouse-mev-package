@@ -5,6 +5,7 @@ transaction_spammer = import_module("github.com/kurtosis-tech/eth2-package/src/t
 
 network_params = json.decode(read_file("github.com/kurtosis-tech/geth-lighthouse-mev-package/network_params.json"))
 LAUNCH_MEV_FLOOD = True
+SECONDS_PER_BUNDLE = 60
 
 def run(plan):
     el_extra_params, mev_builder_image, validator_extra_params, beacon_extra_params = mev_launcher.get_mev_params()
@@ -19,6 +20,6 @@ def run(plan):
 
     transaction_spammer.launch_transaction_spammer(plan, geth.genesis_constants.PRE_FUNDED_ACCOUNTS, el_context)
 
-    output = mev_launcher.launch_mev(plan, el_context, cl_context, network_params, LAUNCH_MEV_FLOOD)
+    output = mev_launcher.launch_mev(plan, el_context, cl_context, network_params, LAUNCH_MEV_FLOOD, SECONDS_PER_BUNDLE)
 
     return output
