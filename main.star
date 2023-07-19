@@ -1,5 +1,5 @@
-geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.star")
-lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.star")
+geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.star@gyani/new-address")
+lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.star@gyani/new-address")
 mev_launcher = import_module("github.com/kurtosis-tech/mev-package/lib/mev_launcher.star")
 transaction_spammer = import_module("github.com/kurtosis-tech/eth2-package/src/transaction_spammer/transaction_spammer.star")
 
@@ -20,6 +20,7 @@ def run(plan):
 
     transaction_spammer.launch_transaction_spammer(plan, geth.genesis_constants.PRE_FUNDED_ACCOUNTS, el_context)
 
+    # this fail with init as there's competition with the spammer; either move spammer down or fix this
     output = mev_launcher.launch_mev(plan, el_context, cl_context, network_params, LAUNCH_MEV_FLOOD, SECONDS_PER_BUNDLE)
 
     return output
