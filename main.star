@@ -39,7 +39,7 @@ def launch_explorer(plan):
     plan.add_service(
         name = "explorer",
         config = ServiceConfig(
-            image = "blockscout/blockscout:staging",
+            image = "blockscout/blockscout:latest",
             ports = {
                 "http": PortSpec(number = 4000, transport_protocol="TCP")
             },
@@ -51,6 +51,6 @@ def launch_explorer(plan):
                 "ETHEREUM_JSONRPC_WS_URL": "ws://el-client-0:8546",
                 "SECRET_KEY_BASE": "56NtB48ear7+wMSf0IQuWDAAazhpb31qyc7GiyspBP2vh7t5zlCsF5QDv76chXeN'",
             },
-            cmd =  ["bash", "-c", "bin/blockscout start"]
+            cmd =  ["bash", "-c", "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"]
         )
     )
