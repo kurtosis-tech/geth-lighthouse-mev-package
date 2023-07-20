@@ -33,7 +33,7 @@ def run(plan):
 # TODO self package
 def launch_explorer(plan):
     postgres = postgres_package.run(plan, args = {
-        "name":"explorer",
+        "name":"explorerdb",
         "database": "blockscout",
         "password": ""
     })
