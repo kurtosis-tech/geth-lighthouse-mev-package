@@ -22,7 +22,6 @@ def run(plan):
     el_context = geth.run(plan, network_params, el_genesis_data, mev_builder_image, el_extra_params)
     cl_context = lighthouse.run(plan, network_params, el_genesis_data, final_genesis_timestamp, el_context, beacon_extra_params, validator_extra_params)
 
-
     transaction_spammer.launch_transaction_spammer(plan, geth.genesis_constants.PRE_FUNDED_ACCOUNTS, el_context)
 
     # this fail with init as there's competition with the spammer; either move spammer down or fix this
@@ -34,9 +33,12 @@ def run(plan):
 # TODO self package
 def launch_explorer(plan):
     postgres = postgres_package.run(plan, args = {
-        "name":"explorer-postgres",
-        "database": "blockscout"
+        "name":"explorer",
+        "database": "blockscout",
+        "password": ""
     })
+
+    plan.print(postgres.url)
 
     plan.add_service(
         name = "explorer",
@@ -53,6 +55,6 @@ def launch_explorer(plan):
                 "ETHEREUM_JSONRPC_WS_URL": "ws://el-client-0:8546",
                 "SECRET_KEY_BASE": "56NtB48ear7+wMSf0IQuWDAAazhpb31qyc7GiyspBP2vh7t5zlCsF5QDv76chXeN'",
             },
-            cmd =  ["bash", "-c", "bin/blockscout start"]
+            cmd =  ["bash", "-c", "bin/blockscout eval \"Elixir.Explorer.ReleaseTasks.create_and_migrate()\" && bin/blockscout start"]
         )
     )
