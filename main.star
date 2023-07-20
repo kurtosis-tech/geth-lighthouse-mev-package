@@ -35,7 +35,7 @@ def launch_explorer(plan):
     postgres = postgres_package.run(plan, args = {
         "name":"explorerdb",
         "database": "blockscout",
-        "password": ""
+        "password": "password"
     })
 
     plan.print(postgres.url)
