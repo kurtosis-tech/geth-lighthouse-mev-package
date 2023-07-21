@@ -1,7 +1,7 @@
 geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.star@gyani/new-address")
 lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.star@gyani/new-address")
 mev_launcher = import_module("github.com/kurtosis-tech/mev-package/lib/mev_launcher.star")
-transaction_spammer = import_module("github.com/kurtosis-tech/eth2-package/src/transaction_spammer/transaction_spammer.star")
+transaction_spammer = import_module("github.com/kurtosis-tech/eth2-package/src/transaction_spammer/transaction_spammer.star@gyani/custom-txfuzz")
 
 network_params = json.decode(read_file("github.com/kurtosis-tech/geth-lighthouse-mev-package/network_params.json"))
 LAUNCH_MEV_FLOOD = True
