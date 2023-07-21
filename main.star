@@ -1,4 +1,4 @@
-geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.sta")
+geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.star")
 lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.star")
 mev_launcher = import_module("github.com/kurtosis-tech/mev-package/lib/mev_launcher.star")
 
