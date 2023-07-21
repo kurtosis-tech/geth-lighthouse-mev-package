@@ -1,5 +1,5 @@
 geth = import_module("github.com/kurtosis-tech/geth-package/lib/geth.sta")
-lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.sta")
+lighthouse = import_module("github.com/kurtosis-tech/lighthouse-package/lib/lighthouse.star")
 mev_launcher = import_module("github.com/kurtosis-tech/mev-package/lib/mev_launcher.star")
 
 network_params = json.decode(read_file("github.com/kurtosis-tech/geth-lighthouse-mev-package/network_params.json"))
