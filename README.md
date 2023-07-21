@@ -7,6 +7,10 @@ This package illustrates how with Kurtosis you can spin up a geth node, a light 
 and add MEV components using individual packages. This is to illustrate how composing
 Kurtosis packages is like putting together lego blocks.
 
+This package is spinning up `mock` MEV by default which consists of MEV Boost and the Ethereum
+Foundation mock mev builder. To launch `full` mev instead you can tweak `line 9` in `main.star`
+and change it to `full`.
+
 Run this package
 ----------------
 If you have [Kurtosis installed][install-kurtosis], run:
